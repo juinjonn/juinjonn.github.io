@@ -1,0 +1,962 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据结构,图," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="定义图是有限结点集合(V)和链接结点的有限边的集合(E)的二元组合G=(V,E)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Groph（图）">
+<meta property="og:url" content="http://yoursite.com/2016/11/20/Groph（图）/index.html">
+<meta property="og:site_name" content="Juinjonn">
+<meta property="og:description" content="定义图是有限结点集合(V)和链接结点的有限边的集合(E)的二元组合G=(V,E)。">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Groph_1.png">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Groph_2.png">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Groph_%E9%93%BE%E8%A1%A8.png">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Groph_%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Groph_%E6%AD%A5%E9%AA%A4.png">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Groph_%E9%81%8D%E5%8E%86.png">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Groph_%E9%81%8D%E5%8E%86%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Dijstra_1.png">
+<meta property="og:image" content="http://ogufzgs96.bkt.clouddn.com/.Dijstra%E6%9D%83%E5%80%BC.png">
+<meta property="og:updated_time" content="2016-11-20T06:40:43.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Groph（图）">
+<meta name="twitter:description" content="定义图是有限结点集合(V)和链接结点的有限边的集合(E)的二元组合G=(V,E)。">
+<meta name="twitter:image" content="http://ogufzgs96.bkt.clouddn.com/.Groph_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/20/Groph（图）/"/>
+
+
+
+
+
+  <title> Groph（图） | Juinjonn </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?bda391238d7d273e830d8b0845c7e041";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Juinjonn</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">心之所向，无所不能！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/20/Groph（图）/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Juinjonn Chan">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ogufzgs96.bkt.clouddn.com/IMG_4178.JPG">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Juinjonn">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Juinjonn" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Groph（图）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-20T14:29:48+08:00">
+                2016-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/20/Groph（图）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/Groph（图）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/20/Groph（图）/" class="leancloud_visitors" data-flag-title="Groph（图）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>图是有限结点集合(V)和链接结点的有限边的集合(E)的二元组合G=(V,E)。</strong></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h2><p><img src="http://ogufzgs96.bkt.clouddn.com/.Groph_1.png" alt="1"></p>
+<p>若图中所有的边均满足的两个顶点没有次序关系和方向性，即(v1,v2)和(v2,v1)代表同一条边，则称为无向图。图（b）所示<br>无向图就是由结点V={1,2,3,4}，和边E={(1,2),(1,3),(1,4),(2,3),(2,4),(3,4)},构成的。</p>
+<h3 id="无向图的性质"><a href="#无向图的性质" class="headerlink" title="无向图的性质"></a>无向图的性质</h3><ol>
+<li><code>完全图</code><br>若图中n个结点间所有可能的边均存在，即有<br>$ C = n*(n-1)/2 $条边，则称为完全图。<br>如图（a）（b）都是完全图</li>
+<li>依附<br>边(V1,V2)依附于顶点V1，V2     如图边（1,4）依附于顶点1,4。</li>
+<li>子图<br>若G’ 是图G的子图，则有V（G‘）&lt;=V（G），和E（G’）&lt;=E（G）。如图a是b的子图     而c不是b的子图</li>
+<li>路径<br>图中从Vp到Vq的一条路径是指由顶点构成的连续序列Vp，Vi1，Vi2，。。。Vin-1<br>Vin，Vp，其中(Vp，Vi1),(Vi1，Vi2),….(Vin-1，Vin),(Vin，Vq)均为E（G）的边。</li>
+<li><code>路径长度</code><br>路径所含边得数目即为路径的长度</li>
+<li><code>简单路径</code><br>指路径上除起点和终点可能相同外，其他顶点都不同。例如b中的{(1,3),(3,2),(2,4)}构成了一条从顶点1,到顶点4的简单路径，且长度为3；而{(1,2),(2,3),(3,4,),(4,2),(2,1)}则不是简单路径。</li>
+<li>回路和环<br>起点和终点为同一顶点的简单路径称为回路或环。例如b中的路径{(1,3),(3,2),(2,1)}构成一个封闭的回路。</li>
+<li>连通<br>若从V1到V2有路径可通，则称顶点V1和顶点V2是连通的。</li>
+<li>连通图<br>图中任意两个结点都有路径相通，称为连通图a，b，c都是连通图</li>
+<li>非连通图<br>只要有两个结点无路径相通，则称为非连通图。  图一</li>
+<li>连通分量<br>图中的极大连通子图，即图一中有两个连通分量</li>
+<li><code>度</code><br>指无向图中顶点V相关的边得个数 </li>
+</ol>
+<h2 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h2><p><img src="http://ogufzgs96.bkt.clouddn.com/.Groph_2.png" alt="2"><br>若图中边得两个顶点存在次序关系和方向性，即 <v1,v2>和 <v2,v1>代表两条不同的边则称为有向图。图a所示的有向图就是由结点V={1,2,3}和边E={<2,1>,<2,3>,<3,2>}构成。其中，有序对<2,1>就是由尾部顶点2，指向头部顶点1的有向边，而边<2,3>和<3,2>则是方向不同的两条边.</3,2></2,3></2,1></3,2></2,3></2,1></v2,v1></v1,v2></p>
+<h3 id="有向图的性质"><a href="#有向图的性质" class="headerlink" title="有向图的性质"></a>有向图的性质</h3><ol>
+<li>完全图<br>若图中结点间n个有可能的边均存在，即Pn=n*（n-1）条边，称为完全图。如图b</li>
+<li>依附<br>边<v1，v2>依附于顶点V1于顶点V2</v1，v2></li>
+<li>路径<br>图中从Vp到Vq的一条路径是指由顶点构成的连续序列Vp，Vi1，Vi2，。。。Vin-1<br>Vin，Vp，其中<vp，vi1>,<vi1，vi2>,….<vin-1，vin>,<vin，vq>均为E（G）上的有向边。</vin，vq></vin-1，vin></vi1，vi2></vp，vi1></li>
+<li>强连通<br>如果每个相异成对顶点Vi和Vj都同时有从Vi到Vj和从Vj到Vi的路径，则称该有向图为强连通。</li>
+<li>强连通分量<br>即有向图中的极大强连通子图</li>
+<li>入度<br>顶点V的入度是指以V为终点有向边得个数<br>(指向该结点的边)</li>
+<li>出度<br>顶点V的出度是指以V为起点有向边的个数。<blockquote>
+<p><strong>度=入度+出度</strong></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h2><h3 id="邻接链表"><a href="#邻接链表" class="headerlink" title="邻接链表"></a>邻接链表</h3><p><img src="http://ogufzgs96.bkt.clouddn.com/.Groph_%E9%93%BE%E8%A1%A8.png" alt="3"></p>
+<h3 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h3><p><img src="http://ogufzgs96.bkt.clouddn.com/.Groph_%E7%9F%A9%E9%98%B5.png" alt="4"></p>
+<h2 id="图的创建"><a href="#图的创建" class="headerlink" title="图的创建"></a>图的创建</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;windows.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 10</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> node</div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> nVertex;</div><div class="line">	<span class="keyword">int</span> nEdge;</div><div class="line">	<span class="keyword">int</span> arr[MAX][MAX];</div><div class="line">&#125;MyGraph;</div><div class="line"></div><div class="line"><span class="function">MyGraph *<span class="title">CreateGraph</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> nV;</div><div class="line">	<span class="keyword">int</span> nE;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">int</span> a,b;</div><div class="line"></div><div class="line">	MyGraph *pGraph = <span class="literal">NULL</span>;</div><div class="line">	pGraph = (MyGraph*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyGraph));</div><div class="line"></div><div class="line">	<span class="comment">//邻接矩阵赋值为0</span></div><div class="line">	<span class="built_in">memset</span>(pGraph,<span class="number">0</span>,<span class="keyword">sizeof</span>(MyGraph));</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入顶点的数量：\n"</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;nV);</div><div class="line">	pGraph-&gt;nVertex = nV;</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入边的数量:\n"</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;nE);</div><div class="line">	pGraph-&gt;nEdge = nE;</div><div class="line"></div><div class="line">	<span class="comment">//邻接矩阵赋值</span></div><div class="line">	<span class="keyword">for</span>(i = <span class="number">1</span>;i&lt;=nE;i++)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入两个顶点:\n"</span>);</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">		<span class="comment">//在顶点范围之内 并且为存储边 </span></div><div class="line">		<span class="keyword">if</span>(a&gt;=<span class="number">1</span> &amp;&amp; a&lt;=nV &amp;&amp; b&gt;=<span class="number">1</span>&amp;&amp; b&lt;= nV </div><div class="line">			&amp;&amp; pGraph-&gt;arr[a][b] == <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			pGraph-&gt;arr[a][b] = <span class="number">1</span>;</div><div class="line">			pGraph-&gt;arr[b][a] = <span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//顶点不对  边已经存在</span></div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			i--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> pGraph;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="图的性质总结"><a href="#图的性质总结" class="headerlink" title="图的性质总结"></a>图的性质总结</h2><ol>
+<li><strong>无向图邻接矩阵的第i行或第i列非0元素的个数其实就是第i个顶点的度</strong></li>
+<li><strong>有向图邻接矩阵的第i行非0元素的个数其实就是第i个顶点的出度，而第i列非0元素的个数是第i个顶点的入度，即第i个顶点的度是第i行和第i列非0元素个数之和</strong></li>
+<li>区分无向图和有向图的3个依据是：</li>
+</ol>
+<ul>
+<li>图中各边无箭头的是无向图，边有箭头的是有向图</li>
+<li>图中各边采用()来描述的是无向图，采用&lt;&gt;来描述的是有向图</li>
+<li>图的邻接矩阵若以对角线为对称，若无特别声明就是无向图，不对称的则是有向图。</li>
+</ul>
+<ol>
+<li>邻接矩阵和邻接表的区别在于：<ul>
+<li>从空间存储来讲，邻接矩阵适用于边很多的图，邻接表则适用于边不多的图。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>从数据结构上讲，<code>邻接矩阵对于图来说是唯一的</code>，而<code>邻接表并不唯一</code><blockquote>
+<p><strong>指针</strong>小知识：<br>函数参数的三种传递方式：1.值传递，2.地址，3.引用。<br>char <em>str = “Hello”与char str[] = “Hello”的不同？<br>char </em>str指向的是字符常量区，sizeof()=4字节，可以str = “abc”,可以改变指向的字符常量区，只能读取，不可以<em>str = “h”不可以修改字符常量。<br>char str[] 把字符常量区的东西拷贝到栈区，</em>str = “h”可以执行，指向栈区，可以任意改变。sizeof() = 6字节，str不可以赋值数组，str是首地址，是常量(无法扩容)。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="把一颗普通的树变成二叉树"><a href="#把一颗普通的树变成二叉树" class="headerlink" title="把一颗普通的树变成二叉树"></a>把一颗普通的树变成二叉树</h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li>把同一个父亲的兄弟连起来。</li>
+<li>把同属于一个父亲的孩子(除第一个)其他的都断开。</li>
+<li>左面孩子是左孩子，右面兄弟是右孩子，相当于把把当前树拎起来，抖开。<br><img src="http://ogufzgs96.bkt.clouddn.com/.Groph_%E6%AD%A5%E9%AA%A4.png" alt="Alt text"><h2 id="把一片森林变成二叉树"><a href="#把一片森林变成二叉树" class="headerlink" title="把一片森林变成二叉树"></a>把一片森林变成二叉树</h2><blockquote>
+<p>森林：多颗树相互不连接的树。</p>
+<h3 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h3></blockquote>
+</li>
+<li>首先，把这些树的根都连起来，这样看起来像一颗普通的树。</li>
+<li>之后，在根据把一颗普通的树变成二叉树的步骤进行。<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><img src="http://ogufzgs96.bkt.clouddn.com/.Groph_%E9%81%8D%E5%8E%86.png" alt="Alt text"><br><img src="http://ogufzgs96.bkt.clouddn.com/.Groph_%E9%81%8D%E5%8E%86%E7%9F%A9%E9%98%B5.png" alt="Alt text"><h3 id="DFS-深度优先遍历"><a href="#DFS-深度优先遍历" class="headerlink" title="DFS 深度优先遍历"></a>DFS 深度优先遍历</h3></li>
+<li>给定一个数字作为接口进入，找到当前的第一个非0的关联结点，输出。</li>
+<li>然后在查看这个非0结点的第一个结点输出，重复的不输出（用一个辅助数组标记）。</li>
+<li>一直找到该结点的当前结点都已经输出过为止，回到上一个相关的结点，依次向右循环遍历。<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">mydfs</span><span class="params">(mygraph *pgraph,<span class="keyword">int</span> nbegin,<span class="keyword">int</span> *pmark)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line"></div><div class="line">	<span class="comment">//打印</span></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d  "</span>,nbegin);</div><div class="line">	<span class="comment">//标记</span></div><div class="line">	pmark[nbegin] = <span class="number">1</span>;</div><div class="line"></div><div class="line">	<span class="comment">//矩阵遍历</span></div><div class="line">	<span class="keyword">for</span>(i = <span class="number">1</span>;i&lt;=pgraph-&gt;nvertex;i++)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">//找到当前的第一个非0的关联节点</span></div><div class="line">		<span class="keyword">if</span>(pgraph-&gt;arr[nbegin][i] == <span class="number">1</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="comment">//检测标记数组</span></div><div class="line">			<span class="comment">//未被标记 </span></div><div class="line">			<span class="keyword">if</span>(pmark[i] == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				mydfs(pgraph,i,pmark);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(mygraph *pgraph,<span class="keyword">int</span> nbegin)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> *pmark = null;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(pgraph == null)<span class="keyword">return</span>;</div><div class="line"></div><div class="line">	<span class="comment">//申请标记数组</span></div><div class="line">	pmark = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * (pgraph-&gt;nvertex +<span class="number">1</span>));</div><div class="line">	<span class="built_in">memset</span>(pmark,<span class="number">0</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * (pgraph-&gt;nvertex +<span class="number">1</span>));</div><div class="line"></div><div class="line">	<span class="comment">//遍历矩阵</span></div><div class="line">	mydfs(pgraph,nbegin,pmark);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="BFS-广度优先遍历"><a href="#BFS-广度优先遍历" class="headerlink" title="BFS 广度优先遍历"></a>BFS 广度优先遍历</h3><ol>
+<li>给定一个数字作为接口进入，找到当前的全部非0的关联结点，输出，放入辅助队列并用辅助数组标记。</li>
+<li>Pop队列第一个结点，查看其相关联的结点，若没有被标记过，则放入辅助队列并用辅助数组标记。</li>
+<li>一直循环此步骤，直到把队列中的结点全部Pop。<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(MyGraph *pGraph,<span class="keyword">int</span> nBegin)</span></span></div><div class="line">&#123;</div><div class="line">	Queue *pQueue = <span class="literal">NULL</span>;</div><div class="line">	<span class="keyword">int</span> *pMark = <span class="literal">NULL</span>;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(pGraph == <span class="literal">NULL</span>)<span class="keyword">return</span>;</div><div class="line"></div><div class="line">	q_Init(&amp;pQueue);</div><div class="line"></div><div class="line">	pMark = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * (pGraph-&gt;nVertex+<span class="number">1</span>));</div><div class="line">	<span class="built_in">memset</span>(pMark,<span class="number">0</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * (pGraph-&gt;nVertex+<span class="number">1</span>));</div><div class="line"></div><div class="line">	q_Push(pQueue,nBegin);</div><div class="line">	pMark[nBegin] = <span class="number">1</span>;</div><div class="line"></div><div class="line">	<span class="keyword">while</span>( !q_IsEmpty(pQueue))</div><div class="line">	&#123;</div><div class="line">		nBegin = q_Pop(pQueue);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,nBegin);</div><div class="line"></div><div class="line">		<span class="keyword">for</span>(i = <span class="number">1</span>;i&lt;=pGraph-&gt;nVertex;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(pGraph-&gt;arr[nBegin][i] == <span class="number">1</span> &amp;&amp; pMark[i] == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				pMark[i] = <span class="number">1</span>;</div><div class="line">				q_Push(pQueue,i);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Dijstra迪杰斯特拉算法"><a href="#Dijstra迪杰斯特拉算法" class="headerlink" title="Dijstra迪杰斯特拉算法"></a>Dijstra迪杰斯特拉算法</h2><p>求带权图最短路径优化算法<br><img src="http://ogufzgs96.bkt.clouddn.com/.Dijstra_1.png" alt="Alt text"><br><img src="http://ogufzgs96.bkt.clouddn.com/.Dijstra%E6%9D%83%E5%80%BC.png" alt="Alt text"><br>补充：结点2到结点4权值为16。</p>
+<h3 id="步骤-2"><a href="#步骤-2" class="headerlink" title="步骤"></a>步骤</h3><blockquote>
+<p>贪心算法：选一个最便宜的路。（大概思路）</p>
+</blockquote>
+<ol>
+<li>$ v_1-&gt; ${$ 0,7,0,0,20,32$}$  $我们以结点1作为出发点！<br>首先先找到一个最便宜的路。$v_1-&gt;v_2$的权值为7，0表示此路不通。<br>然后，假设我们已经从$v_1-&gt;v_2$，来计算到其他结点的权值。</li>
+<li>$ v_1-&gt;v_2-&gt; ${$ 0,7,11,23,20,10$}$  $解释一下11是由于上一个$v_1$不可以直接到3结点，<br>所以先到2结点花费7，然后再从2到3花费4，所以加起来是11。同理23也是1到2，2到4，<br>一共花费23。10是因为结点1到6花费32，而结点1到2到6花费10。所以我们每次都要选择花费最少的方案。<br>之后我们在在1到2中选择下一个目的地（必须是花费最少的权值路径）。所以我们选择6结点。<br>ps：我们曾经算出来的最少路径不当作下一个目的地进行考虑（如0,7,10）</li>
+<li>$ v_1-&gt;v_2-&gt;v_6 ${$ 0,7,11,23,11,10$ }$ $根据上述理论，第二个11是由1到2到6到5，是1到5最便宜的选择！<br>选择3结点作为下次的目的地。由于3和5的权值相同，我们就先选3作为下次目的地。</li>
+<li>$ v_1-&gt;v_2-&gt;v_6-&gt;v_3 ${$ 0,7,11,17,11,10$ }$ $下次我们将结点5作为目的地。</li>
+<li>$ v_1-&gt;v_2-&gt;v_6-&gt;v_3-&gt;v_5 ${$ 0,7,11,17,11,10$ }$ $所以就得从结点1出发到各个结点最便宜的路径选择。以及<br>最少权值。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>技术无价，一元美滋滋！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ogufzgs96.bkt.clouddn.com/IMG_5524.JPG" alt="Juinjonn Chan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ogufzgs96.bkt.clouddn.com/IMG_5526.JPG" alt="Juinjonn Chan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/图/" rel="tag"># 图</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/20/查找（Chop）/" rel="next" title="查找（Chop）">
+                <i class="fa fa-chevron-left"></i> 查找（Chop）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/20/排序（Sort）/" rel="prev" title="排序（Sort）">
+                排序（Sort） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/20/Groph（图）/"
+           data-title="Groph（图）" data-url="http://yoursite.com/2016/11/20/Groph（图）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ogufzgs96.bkt.clouddn.com/IMG_4178.JPG"
+               alt="Juinjonn Chan" />
+          <p class="site-author-name" itemprop="name">Juinjonn Chan</p>
+          <p class="site-description motion-element" itemprop="description">Dream Of Wings</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3236149843/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无向图"><span class="nav-number">2.</span> <span class="nav-text">无向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无向图的性质"><span class="nav-number">2.1.</span> <span class="nav-text">无向图的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有向图"><span class="nav-number">3.</span> <span class="nav-text">有向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有向图的性质"><span class="nav-number">3.1.</span> <span class="nav-text">有向图的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图的存储"><span class="nav-number">4.</span> <span class="nav-text">图的存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#邻接链表"><span class="nav-number">4.1.</span> <span class="nav-text">邻接链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#邻接矩阵"><span class="nav-number">4.2.</span> <span class="nav-text">邻接矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图的创建"><span class="nav-number">5.</span> <span class="nav-text">图的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图的性质总结"><span class="nav-number">6.</span> <span class="nav-text">图的性质总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把一颗普通的树变成二叉树"><span class="nav-number">7.</span> <span class="nav-text">把一颗普通的树变成二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">7.1.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把一片森林变成二叉树"><span class="nav-number">8.</span> <span class="nav-text">把一片森林变成二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-1"><span class="nav-number">8.1.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图的遍历"><span class="nav-number">9.</span> <span class="nav-text">图的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS-深度优先遍历"><span class="nav-number">9.1.</span> <span class="nav-text">DFS 深度优先遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFS-广度优先遍历"><span class="nav-number">9.2.</span> <span class="nav-text">BFS 广度优先遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dijstra迪杰斯特拉算法"><span class="nav-number">10.</span> <span class="nav-text">Dijstra迪杰斯特拉算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-2"><span class="nav-number">10.1.</span> <span class="nav-text">步骤</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juinjonn Chan</span>
+</div>
+
+
+<div class="powered-by">
+  春夏秋冬
+</div>
+
+<div class="theme-info">
+  俊仲 -
+  Eternity 
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"juinjonn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("kfT7XGWlI3yEE8yEG2e9mLGl-gzGzoHsz", "WbkPYhBazxABfjw1tq3GQeUv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+  
+
+
+</body>
+</html>
