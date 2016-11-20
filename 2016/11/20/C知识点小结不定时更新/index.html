@@ -1,0 +1,931 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="一些老师上课随口讲的小知识点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C知识点小结不定时更新">
+<meta property="og:url" content="http://yoursite.com/2016/11/20/C知识点小结不定时更新/index.html">
+<meta property="og:site_name" content="Juinjonn">
+<meta property="og:description" content="一些老师上课随口讲的小知识点">
+<meta property="og:updated_time" content="2016-11-20T05:26:32.638Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C知识点小结不定时更新">
+<meta name="twitter:description" content="一些老师上课随口讲的小知识点">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/20/C知识点小结不定时更新/"/>
+
+
+
+
+
+  <title> C知识点小结不定时更新 | Juinjonn </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?bda391238d7d273e830d8b0845c7e041";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Juinjonn</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">心之所向，无所不能！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/20/C知识点小结不定时更新/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Juinjonn Chan">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ogufzgs96.bkt.clouddn.com/IMG_4178.JPG">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Juinjonn">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Juinjonn" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C知识点小结不定时更新
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-20T13:22:05+08:00">
+                2016-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/20/C知识点小结不定时更新/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/C知识点小结不定时更新/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/20/C知识点小结不定时更新/" class="leancloud_visitors" data-flag-title="C知识点小结不定时更新">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><h1 id="一些老师上课随口讲的小知识点"><a href="#一些老师上课随口讲的小知识点" class="headerlink" title="一些老师上课随口讲的小知识点"></a>一些老师上课随口讲的小知识点</h1></blockquote>
+<a id="more"></a>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型:"></a>数据类型:</h2><hr>
+<p><strong>六种基本数据类型:整型:int  short  long  char </strong><br>                                        <strong>浮点型:float double</strong></p>
+<blockquote>
+<p><strong>int4字节  short2字节  long((4字节)(32位)8字节(64位))  char1字节</strong><br><strong>浮点型：float（4字节）：小数点后6位  double（8字节）：小数点后15位</strong><br><strong>int:-2147483648~2147483647,short:-32768~32767,char:-128~127</strong></p>
+</blockquote>
+<p> <strong>sizeof()返回值是unsighed</strong><br>char a = -5,unsighed char c = -3; a+c = ?<br>-5:</p>
+<ul>
+<li><strong>原码:1 0 0 0 0 1 0 1</strong></li>
+<li><strong>机械码:1 1 1 1 1 0 1 1</strong></li>
+</ul>
+<blockquote>
+<p><strong>机械码就是把其正数的原码按位取反相加</strong></p>
+</blockquote>
+<p> 相加结果就为-5和3的机械码相加<br> 11111011<br> 00000011</p>
+<hr>
+<p> 11111110<br> 所以a+c=254<br> <strong>如果一个小类型和一个大类型比较小类型(char)会向大类型提升(int)</strong><br> <strong>%02x:不足2位用0补 例如:1-&gt;01   %nf:打印小数 (小数别名:实型)   %le:按照科学计数法打印小数  例如:1.2e+12345</strong><br> switch()括号里只能放整型和整形表达式不能放float和double<br> case:只能放整数常量和整数常量表达式</p>
+<blockquote>
+<p><strong>return 0 作用:告诉程序的激活者,该程序执行到此处正常结束</strong></p>
+</blockquote>
+<h2 id="流程结构-顺序、选择、循环"><a href="#流程结构-顺序、选择、循环" class="headerlink" title="流程结构:顺序、选择、循环"></a>流程结构:顺序、选择、循环</h2><hr>
+<p>do   while():效率最高   while比for 运行效率好一点点</p>
+<h3 id="在C-中"><a href="#在C-中" class="headerlink" title="在C++中"></a>在C++中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A a;</div><div class="line">A b;</div><div class="line">b = a;//&apos;=&apos;返回值是A类的引用</div></pre></td></tr></table></figure>
+<h3 id="在C语言中"><a href="#在C语言中" class="headerlink" title="在C语言中"></a>在C语言中</h3><pre><code>b = 5;//整个表达式返回值是5
+b = 0；//返回值是0
+while(b = 0)//一次循环都不会执行
+</code></pre><p><strong>C++常考关键字</strong><br>static<br>const<br>volatile</p>
+<blockquote>
+<p><strong>static和全局变量都在同一内存区域</strong><br><strong>static:作用域只能在定义的文件中使用</strong><br><strong>全局变量:作用域可以跨文件使用</strong><br><strong>const:在C++里叫常量</strong><br><strong>在C里叫只读变量</strong><br><strong>volatile:防止编译优化,保证对特殊地址的稳定访问</strong></p>
+</blockquote>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><hr>
+<p>内存的三种操作:读、写、取地址<br>内存常用区:<code>堆</code>  <code>栈</code>  <code>字符常量区</code>  <code>代码区</code>  <code>静态区(全局区)</code><br>数组:是一块类型相同的连续空间<br>数组名字在一般情况下代表数组首元素首地址,或者<strong>取地址</strong>,或者<code>sizeof()</code>代表整个数组.<br><strong>[ ]作用:</strong></p>
+<ul>
+<li>定义数组</li>
+<li>当形参传递时相当于*</li>
+<li>间接访问,偏移</li>
+</ul>
+<p><strong><code>*</code>作用</strong></p>
+<ul>
+<li>间接访问</li>
+<li>乘法</li>
+<li>定义指针</li>
+</ul>
+<p><strong><code>#define</code></strong>宏定义是单纯替换,替换之前不会进行任何计算</p>
+<blockquote>
+<p>宏定义用到乘法时: <strong>a*b</strong> <strong>→((a)*(b))</strong><br>它是在预编译完成的各种事件,所以它属于编译期机制</p>
+</blockquote>
+<p><strong>缺点:</strong></p>
+<ul>
+<li>调试时不可见</li>
+<li>数据无类型</li>
+</ul>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><hr>
+<ul>
+<li>编译期多态(静态多态)→运算符重载,函数重载</li>
+<li>运行期多态(动态多态)→虚函数</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><hr>
+<p><strong><em>typedef:</em></strong>对已经存在的数据类型重命名。<br><strong><code>strcpy</code></strong>和<strong><code>strcat</code></strong>末尾加\0<br><strong><code>strncpy</code></strong>和<strong><code>strncat</code></strong>末尾不加\0</p>
+<blockquote>
+<p><code>atoi</code>是系统函数<br><code>itoa</code>不是系统函数</p>
+</blockquote>
+<p><strong>一个数字以一个0为开始的话,表示8进制</strong></p>
+<blockquote>
+<p>例如:0123(表示八进制123) = 83(十进制)<br>‘\064’=&gt;’4’  =&gt; ‘\52(十进制)’ =&gt; ‘4’</p>
+</blockquote>
+<p><code>strtok</code>字符串分割<br><code>strdup</code>字符串复制(传一个原串,自动生产目的串)</p>
+<blockquote>
+<p><strong><em>匈牙利命名法:函数什么作用就起什么名字</em></strong><br><strong><em>驼峰命名法:首字母大写</em></strong></p>
+<blockquote>
+<p>函数名用动词,如果名字太长,缩写的话元音(a e i o u)和不发音的字母省略。</p>
+</blockquote>
+</blockquote>
+<p>函数名就是入口地址。         </p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><hr>
+<ul>
+<li>fopen:打开文件</li>
+<li>fclose:关闭文件</li>
+<li>fread:读取文件</li>
+<li>fwrite:写文件</li>
+<li>fseek:文件指针移动</li>
+</ul>
+<blockquote>
+<p>有一个数组,其他元素出现偶数次,就有一个出现一次,找到这个数的快速方法<br>答案:每个元素相互异或,最后得到的就是那个数字。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>技术无价，一元美滋滋！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ogufzgs96.bkt.clouddn.com/IMG_5524.JPG" alt="Juinjonn Chan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ogufzgs96.bkt.clouddn.com/IMG_5526.JPG" alt="Juinjonn Chan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/20/数据结构之一对多，树“/" rel="next" title="数据结构之一对多，树“">
+                <i class="fa fa-chevron-left"></i> 数据结构之一对多，树“
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/20/Haffman（赫夫曼编码）/" rel="prev" title="Haffman（赫夫曼编码）">
+                Haffman（赫夫曼编码） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/20/C知识点小结不定时更新/"
+           data-title="C知识点小结不定时更新" data-url="http://yoursite.com/2016/11/20/C知识点小结不定时更新/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ogufzgs96.bkt.clouddn.com/IMG_4178.JPG"
+               alt="Juinjonn Chan" />
+          <p class="site-author-name" itemprop="name">Juinjonn Chan</p>
+          <p class="site-description motion-element" itemprop="description">Dream Of Wings</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3236149843/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些老师上课随口讲的小知识点"><span class="nav-number">1.</span> <span class="nav-text">一些老师上课随口讲的小知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程结构-顺序、选择、循环"><span class="nav-number">1.2.</span> <span class="nav-text">流程结构:顺序、选择、循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在C-中"><span class="nav-number">1.2.1.</span> <span class="nav-text">在C++中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在C语言中"><span class="nav-number">1.2.2.</span> <span class="nav-text">在C语言中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存"><span class="nav-number">1.3.</span> <span class="nav-text">内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">1.4.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.5.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">1.6.</span> <span class="nav-text">文件操作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juinjonn Chan</span>
+</div>
+
+
+<div class="powered-by">
+  春夏秋冬
+</div>
+
+<div class="theme-info">
+  俊仲 -
+  Eternity 
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"juinjonn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("kfT7XGWlI3yEE8yEG2e9mLGl-gzGzoHsz", "WbkPYhBazxABfjw1tq3GQeUv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
