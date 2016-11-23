@@ -84,16 +84,34 @@
 
 
 
-<meta name="description" content="二分查找定义对已经排好序的数组进行查找">
+<meta name="description" content="寻觅
+&amp;lt;–!more–&amp;gt;
+二分查找定义对已经排好序的数组进行查找对数组进行操作在查找失败最多次数$ K=\lfloor log2^{n}\rfloor +1 $(向下取整加一)
+
+二分查找的时间复杂度:$ \displaystyle\frac{n}{2^k} = 1,K = log2^n $
+二分查找的代码
+1234567891011121314151617181920int Bina">
 <meta property="og:type" content="article">
 <meta property="og:title" content="查找（Chop）">
 <meta property="og:url" content="http://yoursite.com/2016/11/20/查找（Chop）/index.html">
 <meta property="og:site_name" content="Juinjonn">
-<meta property="og:description" content="二分查找定义对已经排好序的数组进行查找">
-<meta property="og:updated_time" content="2016-11-20T06:21:51.539Z">
+<meta property="og:description" content="寻觅
+&amp;lt;–!more–&amp;gt;
+二分查找定义对已经排好序的数组进行查找对数组进行操作在查找失败最多次数$ K=\lfloor log2^{n}\rfloor +1 $(向下取整加一)
+
+二分查找的时间复杂度:$ \displaystyle\frac{n}{2^k} = 1,K = log2^n $
+二分查找的代码
+1234567891011121314151617181920int Bina">
+<meta property="og:updated_time" content="2016-11-23T05:07:56.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查找（Chop）">
-<meta name="twitter:description" content="二分查找定义对已经排好序的数组进行查找">
+<meta name="twitter:description" content="寻觅
+&amp;lt;–!more–&amp;gt;
+二分查找定义对已经排好序的数组进行查找对数组进行操作在查找失败最多次数$ K=\lfloor log2^{n}\rfloor +1 $(向下取整加一)
+
+二分查找的时间复杂度:$ \displaystyle\frac{n}{2^k} = 1,K = log2^n $
+二分查找的代码
+1234567891011121314151617181920int Bina">
 
 
 
@@ -375,11 +393,43 @@
       
 
       
-        <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>对已经排好序的数组进行查找<br><a id="more"></a><br>对<strong>数组</strong>进行操作<br>在查找失败最多次数$ K=\lfloor log2^{n}\rfloor +1 $(向下取整加一)</p>
+        <blockquote class="blockquote-center"><h2 id="寻觅"><a href="#寻觅" class="headerlink" title="寻觅"></a>寻觅</h2></blockquote>
+<p>&lt;–!more–&gt;</p>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>对已经排好序的数组进行查找<br>对<strong>数组</strong>进行操作<br>在查找失败最多次数$ K=\lfloor log2^{n}\rfloor +1 $(向下取整加一)</p>
 <blockquote>
 <p>二分查找的时间复杂度:$ \displaystyle\frac{n}{2^k} = 1,K = log2^n $</p>
-<h3 id="二分查找的代码"><a href="#二分查找的代码" class="headerlink" title="二分查找的代码"></a>二分查找的代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinaryChop</span><span class="params">(<span class="keyword">int</span> Num[],<span class="keyword">int</span> nCount,<span class="keyword">int</span> nValue)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> max_index = nCount<span class="number">-1</span>;</div><div class="line">	<span class="keyword">int</span> min_index = <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> Mid = <span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span> (min_index&lt;=max_index)</div><div class="line">	&#123;</div><div class="line">		Mid = (max_index+min_index)/<span class="number">2</span>;</div><div class="line">		<span class="keyword">if</span>(Num[Mid] == nValue)</div><div class="line">			<span class="keyword">return</span> Mid;</div><div class="line">		<span class="keyword">if</span>(Num[Mid]&gt;nValue)</div><div class="line">		&#123;</div><div class="line">			max_index = Mid<span class="number">-1</span>;</div><div class="line">		&#125;<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			min_index = Mid+<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></blockquote>
-
+<h3 id="二分查找的代码"><a href="#二分查找的代码" class="headerlink" title="二分查找的代码"></a>二分查找的代码</h3></blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinaryChop</span><span class="params">(<span class="keyword">int</span> Num[],<span class="keyword">int</span> nCount,<span class="keyword">int</span> nValue)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> max_index = nCount<span class="number">-1</span>;</div><div class="line">	<span class="keyword">int</span> min_index = <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> Mid = <span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span> (min_index&lt;=max_index)</div><div class="line">	&#123;</div><div class="line">		Mid = (max_index+min_index)/<span class="number">2</span>;</div><div class="line">		<span class="keyword">if</span>(Num[Mid] == nValue)</div><div class="line">			<span class="keyword">return</span> Mid;</div><div class="line">		<span class="keyword">if</span>(Num[Mid]&gt;nValue)</div><div class="line">		&#123;</div><div class="line">			max_index = Mid<span class="number">-1</span>;</div><div class="line">		&#125;<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			min_index = Mid+<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="HashChop（哈希查找）"><a href="#HashChop（哈希查找）" class="headerlink" title="HashChop（哈希查找）"></a>HashChop（哈希查找）</h2><p>定义：对已经建好散列表的数据进行查找。</p>
+<blockquote>
+<p>哈希是<strong>查找速度最快</strong>的算法。<br><strong>缺点:</strong>空间消耗非常大。</p>
+</blockquote>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li>分析数据并定散列函数。</li>
+<li>决定哈希冲突的解决办法。</li>
+<li>根据散列函数建散列表。</li>
+<li>对已经建好的散列表进行查找。</li>
+</ol>
+<p>对于以上步骤第一步到第三步是建立散列表的过程。</p>
+<h3 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h3><p>我们一般用求整取余法。</p>
+<ol>
+<li>首先我们选取一个数M，这个数最好是质数（非硬性要求），但一定比数据元素个数小，因为在同时间复杂度下占用空间最小为宜，后面会提及。</li>
+<li>当M数确定下来后，我们定桶，桶为数据元素除以质数M的各个余数，也就是从0到M-1，元素除以质数M得桶所代表的余数，我们就把这个数据元素放入桶内，而且每个桶里只能放一个元素。</li>
+<li>而当数据元素除以质数M得余数相同时，由于桶内只能放一个元素，所以当出现余数相同的元素时而不能放入桶内时，就产生了哈希冲突。当我们解决完哈希冲突后，也就建完散列表，就可以查找了！<h3 id="解决哈希冲突"><a href="#解决哈希冲突" class="headerlink" title="解决哈希冲突"></a>解决哈希冲突</h3></li>
+<li>开放地址法</li>
+</ol>
+<ul>
+<li>线性探测法：在冲突位置顺次后延一位放入桶内。也就是说同为余数4的话，后来的数据就放入余数5的桶里。</li>
+<li>线性补偿法：首先定一个步长，遇到冲突时，按步长顺次后延步长的长度放入桶内。</li>
+<li>随机探测法：找个随机数来当步长，解决冲突如上个办法。</li>
+</ul>
+<ol>
+<li>拉链法：</li>
+</ol>
+<ul>
+<li>在每个桶内建立一个头添加的链表，每个桶内装的是相应链表的头指针，将后来的元素依次头添加在链表上。<h3 id="举例图示"><a href="#举例图示" class="headerlink" title="举例图示"></a>举例图示</h3>例如数组｛19，27，55，41，82，89，16，9，22，98，104，1，2，205，46｝<br><a href="http://ogufzgs96.bkt.clouddn.com/HashChop-1.jpg" target="_blank" rel="external">Hashchop</a></li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> node</div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> nValue;</div><div class="line">	<span class="keyword">int</span> nIndex;</div><div class="line">	<span class="keyword">struct</span> node *pNext;</div><div class="line">&#125;MyHash;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 7</span></div><div class="line"></div><div class="line"><span class="function">MyHash **<span class="title">CreateHashTable</span><span class="params">(<span class="keyword">int</span> arr[],<span class="keyword">int</span> nLength)</span></span></div><div class="line">&#123;</div><div class="line">	MyHash **pHash = <span class="literal">NULL</span>;</div><div class="line">	MyHash *pTemp = <span class="literal">NULL</span>;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">int</span> nIndex;</div><div class="line">	<span class="comment">//申请哈希表表头</span></div><div class="line">	pHash = (MyHash**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyHash*) * M);</div><div class="line">	<span class="built_in">memset</span>(pHash,<span class="literal">NULL</span>,<span class="keyword">sizeof</span>(MyHash*) * M);</div><div class="line"></div><div class="line">	<span class="comment">//拉链法</span></div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;nLength;i++)</div><div class="line">	&#123;</div><div class="line">		nIndex = arr[i]%M;</div><div class="line">		pTemp = (MyHash*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyHash));</div><div class="line">		pTemp-&gt;nIndex = i;</div><div class="line">		pTemp-&gt;nValue = arr[i];</div><div class="line"></div><div class="line">		<span class="comment">//头添加</span></div><div class="line">		pTemp-&gt;pNext = pHash[nIndex];</div><div class="line">		pHash[nIndex] = pTemp;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> pHash;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">HashChop</span><span class="params">(<span class="keyword">int</span> arr[],<span class="keyword">int</span> nLength,<span class="keyword">int</span> nNum)</span></span></div><div class="line">&#123;</div><div class="line">	MyHash **pHash = <span class="literal">NULL</span>;</div><div class="line">	<span class="keyword">int</span> nIndex;</div><div class="line">	MyHash *pMark = <span class="literal">NULL</span>; </div><div class="line"></div><div class="line">	<span class="keyword">if</span>(arr == <span class="literal">NULL</span> || nLength &lt;=<span class="number">0</span>) </div><div class="line">		<span class="built_in">abort</span>();</div><div class="line"></div><div class="line">	<span class="comment">//建哈希表</span></div><div class="line">	pHash = CreateHashTable(arr,nLength);</div><div class="line"></div><div class="line">	<span class="comment">//查询</span></div><div class="line">	nIndex = nNum%M;</div><div class="line">	pMark = pHash[nIndex];</div><div class="line"></div><div class="line">	<span class="comment">//遍历链表</span></div><div class="line">	<span class="keyword">while</span>(pMark)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(pMark-&gt;nValue == nNum)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">return</span> pMark-&gt;nIndex;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			pMark = pMark-&gt;pNext;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -581,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二分查找"><span class="nav-number">1.</span> <span class="nav-text">二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找的代码"><span class="nav-number">1.2.</span> <span class="nav-text">二分查找的代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寻觅"><span class="nav-number">1.</span> <span class="nav-text">寻觅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二分查找"><span class="nav-number">2.</span> <span class="nav-text">二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找的代码"><span class="nav-number">2.2.</span> <span class="nav-text">二分查找的代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashChop（哈希查找）"><span class="nav-number">3.</span> <span class="nav-text">HashChop（哈希查找）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">3.1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列函数"><span class="nav-number">3.2.</span> <span class="nav-text">散列函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决哈希冲突"><span class="nav-number">3.3.</span> <span class="nav-text">解决哈希冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举例图示"><span class="nav-number">3.4.</span> <span class="nav-text">举例图示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.5.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
